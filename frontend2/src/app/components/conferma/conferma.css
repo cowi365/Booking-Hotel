@@ -1,0 +1,164 @@
+/* ===== PAGINA CONFERMA ===== */
+.conferma-page {
+  min-height: 100vh;
+  background: #0f0f0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.conferma-card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  padding: 3rem 2.5rem;
+  max-width: 550px;
+  width: 100%;
+  text-align: center;
+  animation: fadeUp 0.6s ease both;
+}
+
+/* Cerchio con check animato */
+.check-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #c4a064;
+  color: #c4a064;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  animation: scaleIn 0.5s ease both 0.2s;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.conferma-card h1 {
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.sottotitolo {
+  color: #ccc;
+  margin-bottom: 0.3rem;
+}
+
+.sottotitolo strong {
+  color: #c4a064;
+}
+
+.info-email {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.info-email em {
+  color: #aaa;
+  font-style: normal;
+}
+
+/* Box riepilogo */
+.riepilogo {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  padding: 1.5rem;
+  margin: 1.5rem 0 2rem;
+  text-align: left;
+}
+
+.riepilogo h2 {
+  font-family: 'Playfair Display', serif;
+  color: #c4a064;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+
+.riepilogo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.riepilogo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.riepilogo-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.label {
+  color: #666;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.valore {
+  color: #fff;
+  font-size: 0.95rem;
+  text-align: right;
+  max-width: 65%;
+}
+
+/* Bottoni azione */
+.conferma-azioni {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-home {
+  padding: 0.8rem 1.5rem;
+  background: #c4a064;
+  color: #111;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: background 0.3s;
+}
+
+.btn-home:hover {
+  background: #d4b074;
+}
+
+.btn-outline {
+  padding: 0.8rem 1.5rem;
+  border: 1px solid #444;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.btn-outline:hover {
+  border-color: #c4a064;
+  color: #c4a064;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

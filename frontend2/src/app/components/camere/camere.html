@@ -1,0 +1,67 @@
+<!-- =============================================
+  TEMPLATE CAMERE
+  @if = mostra/nasconde blocchi in base a condizione
+        (sostituisce il vecchio *ngIf)
+  @for = itera un array
+        (sostituisce il vecchio *ngFor)
+============================================= -->
+
+<div class="camere-page">
+  <header class="page-header">
+    <h1>Le Nostre Camere</h1>
+    <p>Scegli la sistemazione perfetta per il tuo soggiorno</p>
+  </header>
+
+  <!-- Stato: caricamento in corso -->
+  @if (caricamento) {
+    <div class="stato-msg">
+      <div class="spinner"></div>
+      <p>Caricamento camere in corso...</p>
+    </div>
+  }
+
+  <!-- Stato: errore HTTP -->
+  @if (errore) {
+    <div class="stato-msg errore">
+      <p>⚠️ {{ errore }}</p>
+    </div>
+  }
+
+  <!-- Stato: nessuna camera disponibile -->
+  @if (!caricamento && !errore && camere.length === 0) {
+    <div class="stato-msg">
+      <p>Nessuna camera disponibile al momento.</p>
+    </div>
+  }
+
+  <!-- Griglia camere -->
+  @if (!caricamento && camere.length > 0) {
+    <div class="camere-grid">
+
+      @for (camera of camere; track camera.ID_Camera) {
+        <div class="camera-card">
+
+          <div class="camera-img">
+            <!-- [src] = Property Binding: espressione TypeScript → attributo HTML -->
+            <img [src]="getImmagine(camera.nome_tipologia)" [alt]="camera.nome_tipologia">
+            <span class="badge-tipologia">{{ camera.nome_tipologia }}</span>
+          </div>
+
+          <div class="camera-body">
+            <h3>Camera {{ camera.Numero_Stanza }}</h3>
+            <p class="camera-desc">{{ camera.Descrizione }}</p>
+
+            <div class="camera-info">
+              <span>🛏️ {{ camera.Posti_Letto }} posti letto</span>
+              <span>🏢 Piano {{ camera.Piano }}</span>
+            </div>
+            <!-- Passa l'ID camera come parametro di rotta -->
+            <a [routerLink]="['/prenotazione', camera.ID_Camera]" class="btn-prenota">
+              Prenota questa camera
+            </a>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -1,4 +1,5 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
+import os
 from flask_cors import CORS
 from database import get_connection
 
@@ -405,6 +406,14 @@ def lista_pulizie():
         return jsonify(result), 200
     except Exception as e:
         return jsonify({"errore": str(e)}), 500
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve_angular(path):
+    static_folder = os.path.join(os.path.dirname(__file__), 'static')
+    if path and os.path.exists(os.path.join(static_folder, path)):
+        return send_from_directory(static_folder, path)
+    return send_from_directory(static_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

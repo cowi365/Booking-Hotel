@@ -1,0 +1,1 @@
+import{h as e,ha as i,k as a}from"./chunk-J7DMDOJ2.js";var o=class t{constructor(r){this.http=r}apiUrl="/api";getCamere(){return this.http.get(`${this.apiUrl}/camere`)}getCamera(r){return this.http.get(`${this.apiUrl}/camere/${r}`)}static \u0275fac=function(m){return new(m||t)(a(i))};static \u0275prov=e({token:t,factory:t.\u0275fac,providedIn:"root"})};export{o as a};

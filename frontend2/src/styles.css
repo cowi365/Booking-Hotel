@@ -1,0 +1,52 @@
+/* =============================================
+   STILI GLOBALI
+   Applicati a tutta l'applicazione.
+   I singoli componenti hanno i propri .css
+   per gli stili specifici (CSS Encapsulation).
+============================================= */
+
+/* Font Google: Playfair Display (titoli) + Lato (corpo) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&display=swap');
+
+/* Reset e box-model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  background: #0f0f0f;
+  color: #e0e0e0;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar personalizzata */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c4a064;
+}
+
+/* Selezione testo */
+::selection {
+  background: rgba(196, 160, 100, 0.3);
+  color: #fff;
+}

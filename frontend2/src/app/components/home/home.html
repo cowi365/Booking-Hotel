@@ -1,0 +1,44 @@
+<!-- =============================================
+  TEMPLATE HOME
+  @for = sintassi Angular 17+ per iterare array
+         (sostituisce il vecchio *ngFor)
+  track = chiave univoca per ottimizzare il DOM
+  {{ }} = interpolazione: mostra valore TypeScript
+============================================= -->
+
+<!-- HERO: immagine di sfondo + testo sovrapposto -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-subtitle">Benvenuto a</p>
+    <h1 class="hero-title">Hotel Aurora</h1>
+    <p class="hero-desc">Un'esperienza di lusso nel cuore della Toscana</p>
+    <div class="hero-actions">
+      <a routerLink="/camere" class="btn-primary">Scopri le Camere</a>
+      <a routerLink="/prenotazione" class="btn-secondary">Prenota Ora</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIZI: card generate con @for -->
+<section class="servizi-section">
+  <h2 class="section-title">I Nostri Servizi</h2>
+  <p class="section-sub">Tutto quello di cui hai bisogno per un soggiorno indimenticabile</p>
+
+  <div class="servizi-grid">
+    <!-- @for itera l'array "servizi" definito in home.ts -->
+    @for (servizio of servizi; track servizio.titolo) {
+      <div class="servizio-card">
+        <span class="servizio-icona">{{ servizio.icona }}</span>
+        <h3>{{ servizio.titolo }}</h3>
+        <p>{{ servizio.desc }}</p>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="cta-section">
+  <h2>Pronto per un soggiorno da sogno?</h2>
+  <a routerLink="/prenotazione" class="btn-primary">Prenota la tua Camera</a>
+</section>

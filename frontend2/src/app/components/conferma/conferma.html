@@ -1,0 +1,56 @@
+<!-- =============================================
+  TEMPLATE CONFERMA
+  Mostra il riepilogo della prenotazione.
+  I dati arrivano dallo state del router,
+  impostato da prenotazione.ts.
+============================================= -->
+
+<div class="conferma-page">
+
+  @if (ospite) {
+    <div class="conferma-card">
+
+      <!-- Icona di successo animata -->
+      <div class="check-circle">✓</div>
+
+      <h1>Prenotazione Confermata!</h1>
+      <p class="sottotitolo">
+        Grazie, <strong>{{ ospite.Nome }} {{ ospite.Cognome }}</strong>!
+      </p>
+      <p class="info-email">
+        Una conferma sarà inviata a <em>{{ ospite.Email }}</em>
+      </p>
+
+      <!-- Riepilogo -->
+      <div class="riepilogo">
+        <h2>Riepilogo</h2>
+
+        <div class="riepilogo-grid">
+          <div class="riepilogo-item">
+            <span class="label">Check-In</span>
+            <!-- formattaData() converte ISO → formato italiano -->
+            <span class="valore">{{ formattaData(checkin) }}</span>
+          </div>
+          <div class="riepilogo-item">
+            <span class="label">Check-Out</span>
+            <span class="valore">{{ formattaData(checkout) }}</span>
+          </div>
+
+          @if (camera && camera.Numero_Stanza) {
+            <div class="riepilogo-item">
+              <span class="label">Camera</span>
+              <span class="valore">N° {{ camera.Numero_Stanza }} — {{ camera.nome_tipologia }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="conferma-azioni">
+        <a routerLink="/" class="btn-home">← Torna alla Home</a>
+        <a routerLink="/camere" class="btn-outline">Sfoglia altre camere</a>
+      </div>
+
+    </div>
+  }
+
+</div>

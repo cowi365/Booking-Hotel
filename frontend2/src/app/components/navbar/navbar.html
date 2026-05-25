@@ -1,0 +1,23 @@
+<!-- =============================================
+  TEMPLATE NAVBAR
+  routerLink = naviga senza ricaricare la pagina
+  routerLinkActive = aggiunge classe CSS 'active'
+  quando il link corrisponde alla rotta corrente
+============================================= -->
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a routerLink="/">🏨 Hotel Aurora</a>
+  </div>
+
+  <ul class="navbar-links">
+    <li>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    </li>
+    <li>
+      <a routerLink="/camere" routerLinkActive="active">Camere</a>
+    </li>
+    <li>
+      <a routerLink="/prenotazione" routerLinkActive="active" class="btn-prenota">Prenota Ora</a>
+    </li>
+  </ul>
+</nav>

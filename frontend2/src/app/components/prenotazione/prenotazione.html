@@ -1,0 +1,110 @@
+<!-- =============================================
+  TEMPLATE PRENOTAZIONE
+  [(ngModel)] = Two-Way Data Binding:
+    - Angular aggiorna la variabile TypeScript
+      quando l'utente scrive nel campo
+    - Il campo mostra sempre il valore corrente
+  [disabled] = Property Binding: disabilita il
+    bottone durante l'invio HTTP
+  (click) = Event Binding: chiama il metodo
+    al click del bottone
+============================================= -->
+
+<div class="prenotazione-page">
+
+  <header class="page-header">
+    <h1>Prenota il tuo Soggiorno</h1>
+    <p>Compila il modulo per completare la prenotazione</p>
+  </header>
+
+  <div class="form-container">
+
+    <!-- Riquadro camera selezionata (solo da /camere/:id) -->
+    @if (cameraSelezionata) {
+      <div class="camera-scelta">
+        <span class="badge-gold">Camera selezionata</span>
+        <h3>Camera {{ cameraSelezionata.Numero_Stanza }} — {{ cameraSelezionata.nome_tipologia }}</h3>
+        <p>🛏️ {{ cameraSelezionata.Posti_Letto }} posti letto · 🏢 Piano {{ cameraSelezionata.Piano }}</p>
+      </div>
+    }
+
+    <!-- Messaggio errore -->
+    @if (errore) {
+      <div class="msg-errore">⚠️ {{ errore }}</div>
+    }
+
+    <!-- ===== DATI PERSONALI ===== -->
+    <section class="form-section">
+      <h2>Dati Personali</h2>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nome">Nome *</label>
+          <!-- [(ngModel)] collega campo ↔ ospite.Nome -->
+          <input id="nome" type="text" [(ngModel)]="ospite.Nome" placeholder="Mario">
+        </div>
+        <div class="form-group">
+          <label for="cognome">Cognome *</label>
+          <input id="cognome" type="text" [(ngModel)]="ospite.Cognome" placeholder="Rossi">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input id="email" type="email" [(ngModel)]="ospite.Email" placeholder="mario@email.com">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="tel">Telefono</label>
+          <input id="tel" type="tel" [(ngModel)]="ospite.Telefono" placeholder="+39 333 1234567">
+        </div>
+        <div class="form-group">
+          <label for="doc">Documento Identità</label>
+          <input id="doc" type="text" [(ngModel)]="ospite.Documento_Identita" placeholder="CI / Passaporto">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DATE E CAMERA ===== -->
+    <section class="form-section">
+      <h2>Dettagli Soggiorno</h2>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="checkin">Check-In *</label>
+          <!-- [min]="oggi" = Property Binding dinamico sull'attributo min -->
+          <input id="checkin" type="date" [(ngModel)]="prenotazione.Data_CheckIn" [min]="oggi">
+        </div>
+        <div class="form-group">
+          <label for="checkout">Check-Out *</label>
+          <input id="checkout" type="date" [(ngModel)]="prenotazione.Data_CheckOut" [min]="prenotazione.Data_CheckIn || oggi">
+        </div>
+      </div>
+
+      <!-- Select camera: solo se non arriva da /prenotazione/:id -->
+      @if (!cameraSelezionata) {
+        <div class="form-group">
+          <label for="camera">Camera *</label>
+          <select id="camera" [(ngModel)]="prenotazione.FK_ID_Camera">
+            <option value="0" disabled>-- Seleziona una camera --</option>
+            @for (c of tutte_camere; track c.ID_Camera) {
+              <option [value]="c.ID_Camera">
+                Camera {{ c.Numero_Stanza }} — {{ c.nome_tipologia }} (Piano {{ c.Piano }})
+              </option>
+            }
+          </select>
+        </div>
+      }
+    </section>
+
+    <!-- Bottone submit -->
+    <!-- (click) = Event Binding → chiama confermaPrenotazione() -->
+    <!-- [disabled] = Property Binding → disabilita durante invio -->
+    <button class="btn-conferma" (click)="confermaPrenotazione()" [disabled]="invio">
+      @if (invio) { ⏳ Elaborazione... }
+      @else { ✓ Conferma Prenotazione }
+    </button>
+
+  </div>
+</div>

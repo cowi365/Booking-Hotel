@@ -1,0 +1,170 @@
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 90vh;
+  min-height: 500px;
+  background: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1600') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  animation: fadeUp 1s ease both;
+}
+
+.hero-subtitle {
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c4a064;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  margin: 0 0 1rem;
+  line-height: 1.1;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Bottoni riutilizzabili */
+.btn-primary {
+  padding: 0.9rem 2rem;
+  background: #c4a064;
+  color: #111;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background: #d4b074;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  padding: 0.9rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== SEZIONE SERVIZI ===== */
+.servizi-section {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: #0f0f0f;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.section-sub {
+  color: #888;
+  margin-bottom: 3rem;
+  letter-spacing: 0.5px;
+}
+
+/* Griglia automatica */
+.servizi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.servizio-card {
+  padding: 2rem 1.5rem;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.servizio-card:hover {
+  border-color: #c4a064;
+  transform: translateY(-4px);
+}
+
+.servizio-icona {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.servizio-card h3 {
+  color: #c4a064;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.servizio-card p {
+  color: #888;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ===== CALL TO ACTION ===== */
+.cta-section {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #1a1508 0%, #0f0f0f 100%);
+  border-top: 1px solid rgba(196, 160, 100, 0.15);
+}
+
+.cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+/* Animazione entrata hero */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
