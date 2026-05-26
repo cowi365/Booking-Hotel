@@ -3,7 +3,6 @@
 // Carica le camere disponibili dall'API
 // e le mostra in griglia.
 // =============================================
-
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CameraService } from '../../services/camera.service';
@@ -28,12 +27,12 @@ export class CamereComponent implements OnInit {
   errore = '';
 
   constructor(private cameraService: CameraService) {}
-
+  
   // ngOnInit: eseguito da Angular subito dopo la creazione del componente
   ngOnInit(): void {
     setTimeout(() => {
      this.caricaCamere();
-    }, 100);
+    }, 1000);
   }
 
   caricaCamere(): void {

@@ -162,9 +162,3 @@
   font-weight: 400;
   margin-bottom: 2rem;
 }
-
-/* Animazione entrata hero */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}

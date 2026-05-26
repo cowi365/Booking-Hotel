@@ -18,7 +18,6 @@ import { Camera } from '../../models/camera.model';
 @Component({
   selector: 'app-prenotazione',
   standalone: true,
-  // FormsModule abilita [(ngModel)] per il Two-Way Binding
   imports: [FormsModule],
   templateUrl: './prenotazione.html',
   styleUrl: './prenotazione.css'
